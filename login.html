@@ -1,0 +1,603 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,user-scalable=yes,minimum-scale=1.0,maximum-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>安徽建筑大学</title>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/public.js"></script>
+	<script src="assets/js/jquery.base64.js"></script>
+	<script src="js/jquery.cookie.js"></script>
+	<script src="js/placeholder.js"></script>
+	<script src="js/jsencrypt.js"></script>
+	
+	<script src="js/md5.js"></script>
+	<script src="js/wxLogin.js"></script>
+	<style type="text/css">
+		.phone {
+			display: none;
+		}
+
+		ul.input-content li {
+			margin-bottom: 18px;
+		}
+
+		html, body {
+			height: 100%
+		}
+	</style>
+</head>
+<body>
+<!-- 新增html开始 -->
+<div class="page animated fadeIn isPc">
+	<div class="cn-body">
+		<div class="cn-banner">
+			<div class="cn-school-word  animated zoomIn">
+				<img src="pcLogin/images/xiaoxun_03.png" alt="">
+			</div>
+			<div class="cn-logo animated bounceInDown">
+				<div class="cn-logo-img">
+					<img src="pcLogin/images/logo_03.png" alt="">
+				</div>
+			</div>
+			<div class="cn-login animated bounceInDown"style="width:300px;height:400px;margin-right: -20px">
+				<div class="cn-login-wrap">
+					<div class="lg-tabs">
+						<img src="pcLogin/images/mobile_03.png" id="changeMobie"
+							 title="手机号登录" alt=""> <img src="pcLogin/images/pc_03.png"
+														id="changePc" class="lv-none" title="账号登录" alt="">
+					</div>
+					<div class="lg-title" style="padding: 12% 2px 2px;margin-top: -10px;display:flex">
+						<div class="lg-title-cn" style="width: 148px; font-size: 20px;
+    height: 35px;
+
+    text-align: center;
+    margin-left: -5px;line-height: 35px">密码登录</div>
+						<!--<div class="lg-title-en">LOGIN</div> -->
+						<div class="lg-title-er" style="font-size: 20px;font-weight: 600;color: black;width: 148px;
+							 height: 35px;
+
+							 text-align: center;
+							 margin-left: -2px;line-height: 35px">微信登录</div>
+					</div>
+					<div class="the-none">
+					<form id="credentials" action="/sso/login?service=https://portal.ahjzu.edu.cn/user/simpleSSOLogin" method="post">
+						<font size="3px" color="red" style="margin-left:35px;font-size:12px;color:red" class = "err">
+							
+							<span style="font-size:12px;color:red"></span>
+						</font>
+						<div class="cn-input-wrap animated flipInY lv-pc " id="lv_Mobie" >
+							<div class="cn-input" style="margin-bottom:20px">
+								<div class="cn-input-icon" >
+									<img src="pcLogin/images/user_07.png" alt="">
+								</div>
+								<input class="lv-input" type="text" id="username_pc" name="username" placeholder="请输入工号/学号">
+							</div>
+							<div class="cn-input"style="margin-bottom:20px">
+								<div class="cn-input-icon">
+									<img src="pcLogin/images/psd_07.png" alt="">
+								</div>
+								<input class="lv-input" type="password" id="password_pc" name="password" placeholder="请输入密码">
+							</div>
+							<div class="cn-input"style="margin-bottom:20px">
+								<div class="cn-input-icon">
+									<img src="pcLogin/images/yzm_07.png" alt="">
+								</div>
+								<input class="lv-input lv-input-yzm image_yzm" name="validateCode" type="text"
+									   placeholder="验证码">
+								<div class="lv-yzm-img">
+									<!-- <img src="pcLogin/images/yzma_07.png" alt=""> -->
+									<img src="code/code.jsp" class="img_code_pc" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="cn-input-wrap animated flipInY lv-mobile lv-none"
+							 id="lv_Pc">
+							<div class="cn-input">
+								<div class="cn-input-icon">
+									<img src="pcLogin/images/phone_07.png" alt="">
+								</div>
+								<input class="lv-input mobile_login_on_pc" type="text" placeholder="请输入手机号">
+							</div>
+							<div class="cn-input">
+								<div class="cn-input-icon">
+									<img src="pcLogin/images/yzm_07.png" style="margin: 4px" alt="">
+								</div>
+								<input class="lv-input lv-input-yzm phone_login_yzm"  type="text"
+									   placeholder="验证码">
+								<div class="lv-yzm-img ">
+									<button class="lv-confirm  getyzm ">获取验证码</button>
+								</div>
+							</div>
+						</div>
+						<input type="hidden" name="lt" value="e3s1" />
+						<input type="hidden" name="_eventId" value="submit" />
+					</form>
+					<div class="co-btn">
+						<button class="lv-confirm pc_login_button">登 录</button>
+					</div>
+					<div class="cn-other">
+						<label for="remeber" class="cn-other-label"> <input
+								type="checkbox" class="cn-other-check" id="remeber_pc"> 记住我
+						</label> <a class="lv-forget" href="/findPassword/index.action" style="font-family:黑体;">忘记密码？</a>
+					</div>
+					</div>
+					<div id="divtwo" style="display: none;margin-top: -1px">
+						<div class="login" id="account_login_div" >
+							<div id="u11" class="ax_default image" >
+								<img id="wechat_login_click" src="images/u17.png" style="z-index: 99; position:absolute;left:889px;top:-320px; width:54px; height:60px;"	>
+								<!-- Unnamed () -->
+								<div id="u12" style="display: none; visibility: hidden">
+									<p><span></span></p>
+								</div>
+								<div class="wechat_container_div">
+									<input  id="serviceCode" type="hidden" value="https://portal.ahjzu.edu.cn/user/simpleSSOLogin" />
+									<div id="wechat_container">
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cn-tips" style="font-family:黑体;">
+			<h4>温馨提示</h4>
+			<ul class="cn-tips-list">
+				<li>1.登录策略：教师账号为教师工号，学生账号为学生学号，建议登录后修改默认密码。</li>
+				<li>2.系统维护时间为00:00-06:00，在此期间可能导致无法正常使用系统，敬请谅解。</li>
+				<li>3.忘记密码请点击<span class="w-color"><a  class="w-color" style="text-decoration:none" href="/findPassword/index.action">“忘记密码”</a></span>找回
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="bottom  ">
+		<span>Copyright &copy; 2018 安徽建筑大学 All Rights Reserved.</span>
+	</div>
+</div>
+<!-- 新增html结束 -->
+
+<script language="javascript" type="text/javascript">
+	//禁用Enter键表单自动提交
+	document.onkeydown = function(event) {
+		var target, code, tag;
+		if (!event) {
+			event = window.event; //针对ie浏览器
+			target = event.srcElement;
+			code = event.keyCode;
+			if (code == 13) {
+				tag = target.tagName;
+				if (tag == "TEXTAREA") { return true; }
+				else { return false; }
+			}
+		}
+		else {
+			target = event.target; //针对遵循w3c标准的浏览器，如Firefox
+			code = event.keyCode;
+			if (code == 13) {
+				tag = target.tagName;
+				if (tag == "INPUT") { return false; }
+				else { return true; }
+			}
+		}
+	};
+</script>
+
+<div class="phone" style="height:100%">
+	<div class="APP-download" style="height:100%">
+		<div class="content" style="height:100%">
+			<div class="login-bg">
+				<img src="phone/img/bg.png" alt="">
+			</div>
+			<div class="login-box">
+				<img src="phone/img/logo.png" alt="" class="logoImg">
+				<form id="credentials_phone" action="/sso/login?service=https://portal.ahjzu.edu.cn/user/simpleSSOLogin" method="post">
+					<ul class="input-content">
+						<li class="input-list"><span> <img
+								src="phone/img/user.png" alt="" class="input-icon user">
+							</span> <span class="input-info"> <input type="text"
+																	 id="username_phone" name="username" class="input"
+																	 placeholder="请输入工号/学号">
+							</span></li>
+						<!--<li class="red-tips" ><span style="display:none" >22</span></li>-->
+						<li class="input-list"><img src="phone/img/pwd.png" alt=""
+													class="input-icon pwd"> <input type="password"
+																				   id="password_phone" name="password" class="input"
+																				   placeholder="请输入密码"></li>
+						<li class="red-tips"></li>
+						<li class="Forget-password"><a
+								href="/findPassword/phone_password.action">忘记密码</a></li>
+						<li class="input-list">
+
+							<input type="hidden" name="lt"
+													  value="e3s1" />
+							<input  name="isMobile" type="hidden"
+								   value="y">
+							<input type="hidden"
+																							name="_eventId" value="submit" /> <input style="border: none"
+																																	 class="submit-btn" type="submit" value="登录"></li>
+					</ul>
+				</form>
+			</div>
+			<div class="footer-phone">
+				教师账号为教师工号，学生账号为学生学号，默认密码均为身份证号/学号后六位，建议登陆后修改默认密码</div>
+		</div>
+	</div>
+</div>
+</body>
+<script id="rems"></script>
+<script>
+	var validateCode = "";
+	var base = new Base64();
+	var encrypt=new JSEncrypt();
+	encrypt.setPublicKey(publickKey);
+	//$(function() {
+	if (isMobile()) {
+		$(".mobile_code").attr("src","code/code.jsp?t="+new Date().getTime());
+		$(".isPc").hide();
+		windowResize(document,window);
+		$("head").append("<link href='assets/css/public.css' rel='stylesheet'><link rel='stylesheet'  href='phone/css/login.css'>");
+		//aaa()
+		$(".phone").show();
+		var winHeight = $(window).height(); //获取当前页面高度
+		$(window).resize(function() {
+			var thisHeight = $(this).height();
+			if (winHeight - thisHeight > 50) {
+				//当软键盘弹出，在这里面操作
+				$(".footer-phone").hide();
+			}
+		})
+	} else {
+		$("head").append("<link rel='stylesheet' href='pcLogin/css/login.css'><link rel='stylesheet' href='pcLogin/css/animate.css'>")
+		$(".isPc").show();
+		//获取Cookie保存的用户名和密码
+		var username = $.cookie('SSOcookUser');
+		var password = $.cookie('SSOcookPass');
+		var remember = $.cookie('SSOremember');
+		var mobile_=$.cookie('SSOcookMobile');
+		if(remember == 1){
+			$("input[id='username_pc']").val(username);
+			$("input[id='password_pc']").val(hex_md5(password));
+			$(".mobile_login_on_pc").val(mobile_);
+			$("#remeber_pc").attr("checked","checked");
+		}
+
+	}
+
+
+	$(".submit-btn").click(function() {
+
+		var username = $("input[id='username_phone']").val();
+		var password = $("input[id='password_phone']").val();
+		if (!hasText(username) && !hasText(password)) {
+			$(".err").html("用户名、密码不能为空");
+			$("input[id='username_phone']").focus();
+			return false;
+		}
+		if (!hasText(username)) {
+			$(".err").html("用户名不能为空");
+			$("input[id='username_phone']").focus();
+			return false;
+		}
+		if (!hasText(password)) {
+			$(".err").html("密码不能为空");
+			$("input[id='password_phone']").focus();
+			return false;
+		} else {
+			$(document).on("submit", "#credentials_phone", function() {
+				$("input[name='password']").val(hex_md5(password));
+
+			});
+		}
+	})
+	$(".pc_login_button").click(
+			function() {
+				var isMobileLogin= $('#lv_Mobie').hasClass("lv-none");
+				if(isMobileLogin){
+					var mobile=$(".mobile_login_on_pc").val();
+					var mobileCode=$(".phone_login_yzm").val();
+					if(!hasText(mobile)){
+						$(".err").html("手机号不能为空");
+						$(".mobile_login_on_pc").focus();
+						return false;
+					}
+					if(!hasText(mobileCode)){
+						$(".err").html("验证码不能为空");
+						$(".phone_login_yzm").focus();
+						return false;
+					}
+					mobileLogin(mobile,mobileCode);
+				}else{
+					var username = $("input[id='username_pc']").val();
+					var password = $("input[id='password_pc']").val();
+					var validateCode=$(".image_yzm").val();
+
+					if (!hasText(username)) {
+						$(".err").html("用户名不能为空");
+						$("input[id='username_pc']").focus();
+						return false;
+					}
+					if (!hasText(password)) {
+						$(".err").html("密码不能为空");
+						$("input[id='password_pc']").focus();
+						return false;
+					}
+					if(!hasText(validateCode)){
+						$(".err").html("验证码不能为空");
+						$(".image_yzm").focus();
+						return false;
+					}
+					$("input[id='password_pc']").val(
+							hex_md5(password));
+					//checkCode(validateCode,username,base.encode(password));
+					if($("#remeber_pc").is(':checked')){
+						$.cookie('SSOcookUser',username,{expires:7});
+						$.cookie('SSOcookPass',password,{expires:7});
+						$.cookie('SSOremember',1,{expires:7});
+					}else{
+						$.cookie('SSOcookUser',null);
+						$.cookie('SSOcookPass',null);
+						$.cookie('SSOremember',null);
+					}
+					console.log($("input[id='password_pc']").val());
+					$("#credentials").submit();
+				}
+
+
+			})
+	$("#changeMobie").click(function() {
+		$(this).addClass('lv-none').siblings().removeClass('lv-none');
+		$('#lv_Mobie').addClass('lv-none')
+		$('#lv_Pc').removeClass('lv-none')
+	})
+	$("#changePc").click(function() {
+		$(this).addClass('lv-none').siblings().removeClass('lv-none');
+		$('#lv_Mobie').removeClass('lv-none')
+		$('#lv_Pc').addClass('lv-none')
+	})
+	$(".getyzm").click(function(e){
+		$(".err").html("");
+		var mobile=$(".mobile_login_on_pc").val();
+		if(!hasText(mobile)){
+			$(".err").html("手机号不能为空");
+			$(".mobile_login_on_pc").focus();
+			return false;
+		}
+		sendMobileCode(mobile);
+		window.event? window.event.cancelBubble = true : e.stopPropagation();
+		e.preventDefault();
+	})
+	$(".img_code_pc").click(function(){
+		$(".img_code_pc").attr("src","code/code.jsp?r="+new Date().getTime());
+	})
+	$('input').placeholder();
+	//})
+
+	function aaa(){
+		(function (doc, win) {
+			var docEl = doc.documentElement,
+					// orientationchange 当设备的方向变化（设备横向持或纵向）此事件被触发
+					//判断窗口有没有orientationchange这个方法，有就赋值给一个变量，没有就返回resize方法。
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function () {
+						var clientWidth = docEl.clientWidth;
+						//clientWidth:对象内容的可视区的宽度,不包滚动条等边线
+						if (!clientWidth) return;
+						//把document的fontSize大小设置成跟窗口成一定比例的大小
+						if(clientWidth>=750){
+							docEl.style.fontSize = '100px';
+						}else{
+							docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+						}
+					};
+
+			if (!doc.addEventListener) return; //DOMContentLoaded是firefox下特有的Event, 当所有DOM解析完以后会触发这个事件。
+			win.addEventListener(resizeEvt, recalc, false);
+			doc.addEventListener('DOMContentLoaded', recalc, false);
+		})(document, window);
+	}
+
+	function windowResize(doc,win) {
+		var docEl = doc.documentElement, resizeEvt = 'orientationchange' in window ? 'orientationchange'
+				: 'resize', recalc = function() {
+			var clientWidth = docEl.clientWidth;
+			if (!clientWidth) return;
+			docEl.style.fontSize = 12 * (clientWidth / 320) + 'px';
+		};
+		if (!doc.addEventListener) return;
+		win.addEventListener(resizeEvt, recalc, false);
+		doc.addEventListener('DOMContentLoaded', recalc, false);
+
+	}
+
+	//验证文本是否为空
+	function hasText(a) {
+		if (typeof (a) == "undefined") {
+			return false;
+		}
+		if (a == null) {
+			return false;
+		}
+		if (a == "null") {
+			return false;
+		}
+		if (typeof (a) == "string") {
+			a = a.replace(/(^\s*)|(\s*$)/g, "");
+		}
+		if (a === "") {
+			return false;
+		}
+		return true;
+	}
+	//校验滑动条
+	function checkCode(validateCode,username,password) {
+		$.ajax({
+			url : "/sso/code/validationCode.jsp?r=" + Math.random(),
+			dataType : "json",
+			type : "post",
+			data : {
+				validateCode : validateCode
+			},
+			success : function(message) {
+				if (message.success) {
+					if($("#remeber_pc").is(':checked')){
+						$.cookie('SSOcookUser',username,{expires:7});
+						$.cookie('SSOcookPass',password,{expires:7});
+						$.cookie('SSOremember',1,{expires:7});
+					}else{
+						$.cookie('SSOcookUser',null);
+						$.cookie('SSOcookPass',null);
+						$.cookie('SSOremember',null);
+					}
+					$("#credentials").submit();
+				} else {
+					$(".err").html(message.msg);
+				}
+			},
+			error : function() {
+				console.log("validate code fail.");
+			}
+		})
+	}
+	function isMobile() {
+		var isMobileFlag = false;
+		var userAgentInfo = navigator.userAgent;
+		var Agents = [ "Android", "iPhone", "SymbianOS", "Windows Phone",
+			"iPad", "iPod" ];
+		var flag = true;
+		for (var v = 0; v < Agents.length; v++) {
+			if (userAgentInfo.indexOf(Agents[v]) > 0) {
+				isMobileFlag = true;
+				break;
+			}
+		}
+		return isMobileFlag;
+	}
+	function sendMobileCode(mobile,e){
+		$.ajax({
+			url : "/sso/sms/sendSms?r=" + Math.random(),
+			dataType : "json",
+			type : "post",
+			data : {
+				mobile : mobile
+			},
+			success : function(data) {
+				var message=data.message;
+				var result_data=data.data*1;
+				switch(data.code){
+					case 200:
+						afterSendMobileCode(result_data);
+						break;
+					case 201:
+						afterSendMobileCode(result_data);
+						$(".err").html(message);
+						break;
+					case 500:
+						$(".err").html(message);
+						break;
+				}
+
+			},
+			error : function() {
+				console.log("validate code fail.");
+			}
+		})
+	}
+	function afterSendMobileCode(time){
+		var code_interval = setInterval(function() {
+			$(".getyzm").text(time--);
+		}, 1000);
+		setTimeout(function(){
+			$(".getyzm").text("获取验证码");
+			clearInterval(code_interval);
+		},time*1000);
+	}
+	function mobileLogin(mobile,mobileCode){
+		$.ajax({
+			url : "/sso/sms/loginSms?r=" + Math.random(),
+			dataType : "json",
+			type : "post",
+			data : {
+				mobile : mobile,
+				mobileCode:mobileCode,
+				service:createService("service")
+			},
+			success : function(data) {
+				var message=data.message;
+				var result_data=data.data;
+				switch(data.code){
+					case 200:
+						if($("#remeber_pc").is(':checked')){
+							$.cookie('SSOcookMobile',mobile,{expires:7});
+							$.cookie('SSOremember',1,{expires:7});
+						}else{
+							$.cookie('SSOcookMobile',null);
+							$.cookie('SSOremember',null);
+						}
+						window.location.href=result_data;
+						break;
+					case 500:
+						$(".err").html(message);
+						break;
+				}
+			},
+			error : function() {
+				console.log("validate code fail.");
+			}
+		})
+	}
+	function createService(name){
+		var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if(r!=null)return  unescape(r[2]); return null;
+	}
+$('.lg-title-er').click(function () {
+$('.the-none').css("display","none");
+	$('.lg-title-er').css("color","#105ab4");
+	$('.lg-title-cn').css("color","black");
+	$('#divtwo').css("display","block");
+})
+
+
+	var obj=new WxLogin({
+		self_redirect:false,
+		id:"wechat_container",
+		appid:"wx8064fc7425b515fd",
+		//appid:appId,
+		scope:"snsapi_login",
+		redirect_uri:encodeURIComponent("https://sso.webvpn.ahjzu.edu.cn/sso/WeiXinLogin?service=" + $("#serviceCode").val()),
+		state:"",
+		style:"",
+		href:"data:text/css;base64,Ci5pbXBvd2VyQm94IC5pbmZvIHsKICAgIHdpZHRoOiAyODBweDsKICAgIG1hcmdpbjogMCBhdXRvOwp9Ci5pbXBvd2VyQm94IC5xcmNvZGUgewogICAgd2lkdGg6IDIxNXB4OwptYXJnaW4tdG9wOjIwcHg7CiAgICBib3JkZXI6IDFweCBzb2xpZCAjRTJFMkUyOwp9Ci5pbXBvd2VyQm94IC50aXRsZSB7CiAgICBkaXNwbGF5OiBub25lOwogICAgCiAgICAKfQ=="
+	});
+$('.lg-title-cn').click(function () {
+$('#divtwo').css("display","none");
+	$('.lg-title-er').css("color","black");
+	$('.lg-title-cn').css("color","#105ab4");
+	$('.the-none').css("display","block");
+})
+window.onload=function(){
+	//var t = window.devicePixelRatio 
+//document.body.style.zoom =1/ t;
+//console.log(t,document.body.style.zoom)
+}
+
+</script>
+</html>
